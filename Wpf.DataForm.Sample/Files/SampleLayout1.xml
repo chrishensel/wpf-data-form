@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <!-- These two link-elements are both invalid and will be omitted, the third one is malicious. -->
+  <link />
+  <link id="i-dont-exist" />
+  <link id="myerroneous" />
+  <!-- The following XML is ok. -->
+  <table>
+    <tr>
+      <td>
+        <link id="my" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table header="All">
+          <tr>
+            <td>
+              <!-- 'b' is put into a binding expression just like in WPF. Bind the properties from your dataobject here. -->
+              <text bind="FirstName" />
+            </td>
+            <td span="2">
+              <text bind="LastName" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <text bind="FirstName" width="50" />
+            </td>
+            <td />
+          </tr>
+          <tr>
+            <td />
+            <td>
+              <!-- You can nest tables within tables. -->
+              <table>
+                <tr>
+                  <td span="3">
+                    <!-- Binding works like you'd expect. Use string-format to specify BindingBase.StringFormat. -->
+                    <datetime bind="JoinDate" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button bind="DoSomethingCommand" />
+                  </td>
+                  <td>
+                    <!-- You can issue some static text, too. -->
+                    <static text="Hello World!" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <text bind="JoinDate" />
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <text bind="LastName" height="37" tip="Demonstrates advanced attribute usage from layout XML." />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <datetime bind="LeaveDate" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <list bind="Age" />
+            </td>
+            <td>
+              <list bind="City" />
+            </td>
+            <td>
+              <check bind="IsValid" text="Valid" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <static text="1" />
+            </td>
+            <td>
+              <static text="2" />
+            </td>
+            <td>
+              <button bind="DoSomethingCommand" />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table header="Comment">
+          <tr>
+            <td>
+              <text td-show-label="false" bind="Comment" height="100" accept-return="true" />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table header="Comment">
+          <tr>
+            <td />
+            <td />
+            <td />
+            <td />
+          </tr>
+          <tr>
+            <!-- Shows a text block, single line, spanning 3 of the 4 available columns. -->
+            <td span="3">
+              <text td-show-label="false" b="Comment" />
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <!-- This link will be recursive. If it is recursed more than a limit allows (the current limit is '16'), the element will be omitted altogether. -->
+        <link id="myrec" />
+      </td>
+    </tr>
+  </table>
+</root>

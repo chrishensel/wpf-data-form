@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table>
+  <tr>
+    <td>
+      <static text="I was inlined! :-)" />
+    </td>
+  </tr>
+</table>

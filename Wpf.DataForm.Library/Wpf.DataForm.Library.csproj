@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C06399A-5CFD-4B12-82A4-238F2EF2D6A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wpf.DataForm.Library</RootNamespace>
+    <AssemblyName>Wpf.DataForm.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Build\Wpf.DataForm.Library.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Build\Wpf.DataForm.Library.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\DateTimePicker.xaml.cs">
+      <DependentUpon>DateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\TimeSpanToStringConverter.cs" />
+    <Compile Include="DataForm\Builder\Factories\CheckControlFactory.cs" />
+    <Compile Include="DataForm\Builder\ConstructionParameters.cs" />
+    <Compile Include="DataForm\Builder\ContentBuildResult.cs" />
+    <Compile Include="DataForm\Builder\Factories\ButtonControlFactory.cs" />
+    <Compile Include="DataForm\Builder\Factories\DateTimeControlFactory.cs" />
+    <Compile Include="DataForm\Builder\FormBuilder.cs" />
+    <Compile Include="DataForm\Builder\IControlBuildService.cs" />
+    <Compile Include="DataForm\Builder\IControlFactory.cs" />
+    <Compile Include="DataForm\Builder\Factories\ListControlFactory.cs" />
+    <Compile Include="DataForm\Builder\Factories\StaticControlFactory.cs" />
+    <Compile Include="DataForm\Builder\Factories\TableControlFactory.cs" />
+    <Compile Include="DataForm\Builder\Factories\TextControlFactory.cs" />
+    <Compile Include="DataForm\XmlLinkResolver\IXmlLinkRegistry.cs" />
+    <Compile Include="DataForm\XmlLinkResolver\IXmlLinkResolver.cs" />
+    <Compile Include="DataForm\Builder\KnownAttributeSet.cs" />
+    <Compile Include="DataForm\XmlLinkResolver\XmlLinkResolverRegistry.cs" />
+    <Compile Include="DataForm\DataFormControl.xaml.cs">
+      <DependentUpon>DataFormControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataForm\DataFormControlStyle.cs" />
+    <Compile Include="DataForm\DataValidationResult.cs" />
+    <Compile Include="DataForm\FormFill\FormFillerImpl.cs" />
+    <Compile Include="DataForm\FormFill\IFormFiller.cs" />
+    <Compile Include="DataForm\IDataFormControlService.cs" />
+    <Compile Include="DataForm\XmlLinkResolver\XmlLinkResolvingUtilities.cs" />
+    <Compile Include="Localization\DefaultLocalizationProvider.cs" />
+    <Compile Include="Localization\ILocalizationProvider.cs" />
+    <Compile Include="Localization\LocalizationManager.cs" />
+    <Compile Include="Localization\LocExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tracing.cs" />
+    <Compile Include="Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\DateTimePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataForm\DataFormControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wpf.Library.Data\Wpf.Library.Data.csproj">
+      <Project>{afcfb130-40cf-4477-8d69-d436d7e1e0ad}</Project>
+      <Name>Wpf.Library.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\error.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
